@@ -1,4 +1,4 @@
-import { get, handleAPIError, post } from "src/api/requests";
+import { get, handleAPIError, post, put } from "src/api/requests";
 
 import type { APIResult } from "src/api/requests";
 
@@ -104,6 +104,23 @@ export async function getAllTasks(): Promise<APIResult<Task[]>> {
     const tasks = json.map((taskJson) => parseTask(taskJson));
 
     return { success: true, data: tasks };
+  } catch (error) {
+    return handleAPIError(error);
+  }
+}
+
+export async function updateTask(task: UpdateTaskRequest): Promise<APIResult<Task>> {
+  try {
+    // your code here
+    const response = await put(`/api/task/${task._id}`, task);
+
+    // Assuming the put function returns a Response object
+    const json = (await response.json()) as TaskJSON;
+
+    // Parse it into your Task type
+    const updatedTask = parseTask(json);
+
+    return { success: true, data: updatedTask };
   } catch (error) {
     return handleAPIError(error);
   }

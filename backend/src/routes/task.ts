@@ -19,5 +19,6 @@ router.get("/:id", TaskController.getTask);
  */
 router.post("/", TaskValidator.createTask, TaskController.createTask);
 router.delete("/:id", TaskController.removeTask);
+router.put("/:id", TaskValidator.updateTask, TaskController.updateTask);
 
 export default router;
