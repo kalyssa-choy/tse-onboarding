@@ -13,7 +13,6 @@ export function TaskList({ title }: TaskListProps) {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   useEffect(() => {
-    // your code here
     async function fetchTasks() {
       try {
         const result = await getAllTasks();
@@ -35,13 +34,9 @@ export function TaskList({ title }: TaskListProps) {
       <span className={styles.title}>{title}</span>
       <div className={styles.taskItems}>
         {tasks.length === 0 ? (
-          // your code here
           <p>No tasks yet. Add one above to get started.</p>
         ) : (
-          tasks.map((task) => (
-            // your code here
-            <TaskItem key={task._id} task={task} />
-          ))
+          tasks.map((task) => <TaskItem key={task._id} task={task} />)
         )}
       </div>
 

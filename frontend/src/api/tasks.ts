@@ -97,7 +97,6 @@ export async function getTask(id: string): Promise<APIResult<Task>> {
 
 export async function getAllTasks(): Promise<APIResult<Task[]>> {
   try {
-    // your code here
     const tasksReponse = await get("/api/tasks");
 
     const json = (await tasksReponse.json()) as TaskJSON[];
@@ -111,7 +110,6 @@ export async function getAllTasks(): Promise<APIResult<Task[]>> {
 
 export async function updateTask(task: UpdateTaskRequest): Promise<APIResult<Task>> {
   try {
-    // your code here
     const response = await put(`/api/task/${task._id}`, task);
 
     // Assuming the put function returns a Response object

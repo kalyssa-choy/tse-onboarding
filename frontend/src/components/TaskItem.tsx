@@ -16,7 +16,6 @@ export function TaskItem({ task: initialTask }: TaskItemProps) {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleToggleCheck = async () => {
-    // your code here
     setLoading(true);
 
     try {
