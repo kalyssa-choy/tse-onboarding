@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Page, TaskForm } from "src/components";
+import { Page, TaskForm, TaskList } from "src/components";
 
 export function Home() {
   return (
@@ -12,6 +12,8 @@ export function Home() {
         <Link to="/about">About this app</Link>
       </p>
       <TaskForm mode="create" />
+
+      <TaskList title="All tasks" />
     </Page>
   );
 }
