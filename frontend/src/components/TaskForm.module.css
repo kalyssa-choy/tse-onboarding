@@ -11,25 +11,14 @@
 
 .formRow {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  column-gap: 2rem;
+  gap: 1rem;
   align-items: flex-end;
-}
-
-.textField {
-  width: 50%;
-  max-width: 16rem;
 }
 
 .textField.stretch {
   width: 50%;
   max-width: none;
   flex-grow: 1;
-}
-
-.titleField {
-  flex: 1;
 }
 
 .titleField .textField {

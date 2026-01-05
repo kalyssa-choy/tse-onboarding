@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { updateTask } from "src/api/tasks";
 import { CheckButton } from "src/components";
 import styles from "src/components/TaskItem.module.css";
+import { UserTag } from "src/components/UserTag";
 
 import type { Task } from "src/api/tasks";
 
@@ -57,6 +58,8 @@ export function TaskItem({ task: initialTask }: TaskItemProps) {
         </Link>
         {task.description && <span className={styles.checked}>{task.description}</span>}
       </div>
+
+      <UserTag user={task.assignee} />
 
       <Dialog
         styleVersion="styled"
