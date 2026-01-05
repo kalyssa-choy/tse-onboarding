@@ -27,8 +27,24 @@
 
 .title {
   font: var(--font-label);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .checked {
   color: var(--color-text-secondary);
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.item:hover {
+  background-color: var(--color-surface);
 }

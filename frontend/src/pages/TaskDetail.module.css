@@ -1,0 +1,54 @@
+.taskDetail {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.titleSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.titleSection button {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.title {
+  font: var(--font-title);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.description {
+  margin: 1rem 0;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.profilePic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.fieldLabel {
+  font: var(--font-label);
+}
+
+.truncate {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

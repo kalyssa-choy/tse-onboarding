@@ -34,6 +34,7 @@
 
 .titleField .textField {
   width: 100%;
+  max-width: none;
 }
 
 .descriptionField {
@@ -42,8 +43,20 @@
 
 .descriptionField .textField {
   width: 100%;
+  max-width: none;
 }
 
-.errorModalText {
-  color: var(--color-tse-navy-blue);
+.assigneeField {
+  flex: 1;
+}
+
+.assigneeField .textField {
+  width: 100%;
+  max-width: none;
+}
+
+.saveField {
+  flex: 3;
+  display: flex;
+  justify-content: flex-start;
 }
