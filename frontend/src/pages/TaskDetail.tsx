@@ -39,7 +39,6 @@ export function TaskDetail() {
               setTask(updatedTask);
               setIsEditing(false);
             }}
-            onCancel={() => setIsEditing(false)}
           />
         ) : (
           <div className={styles.taskDetail}>

@@ -10,7 +10,6 @@ import type { Task } from "src/api/tasks";
 export type EditTaskFormProps = {
   task: Task;
   onSubmit?: (task: Task) => void;
-  onCancel?: () => void;
 };
 
 /**
@@ -30,9 +29,8 @@ type TaskFormErrors = {
  * @param props.task The task to edit
  * @param props.onSubmit Optional callback to run after the user submits the
  * form and the request succeeds
- * @param props.onCancel Optional callback to run when the user cancels
  */
-export function EditTaskForm({ task, onSubmit, onCancel }: EditTaskFormProps) {
+export function EditTaskForm({ task, onSubmit }: EditTaskFormProps) {
   const [title, setTitle] = useState<string>(task.title);
   const [description, setDescription] = useState<string>(task.description || "");
   const [assignee, setAssignee] = useState<string>(task.assignee?._id || "");
