@@ -11,8 +11,15 @@
 
 .formRow {
   display: flex;
-  gap: 1rem;
+  flex-direction: row;
+  justify-content: flex-start;
+  column-gap: 2rem;
   align-items: flex-end;
+}
+
+.textField {
+  width: 50%;
+  max-width: 16rem;
 }
 
 .textField.stretch {
@@ -21,8 +28,13 @@
   flex-grow: 1;
 }
 
+.titleField {
+  flex: 1;
+}
+
 .titleField .textField {
   width: 100%;
+  max-width: none;
 }
 
 .descriptionField {
@@ -31,8 +43,20 @@
 
 .descriptionField .textField {
   width: 100%;
+  max-width: none;
 }
 
-.errorModalText {
-  color: var(--color-tse-navy-blue);
+.assigneeField {
+  flex: 1;
+}
+
+.assigneeField .textField {
+  width: 100%;
+  max-width: none;
+}
+
+.saveField {
+  flex: 3;
+  display: flex;
+  justify-content: flex-start;
 }

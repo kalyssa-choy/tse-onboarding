@@ -1,8 +1,10 @@
 import { Dialog } from "@tritonse/tse-constellation";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { updateTask } from "src/api/tasks";
 import { CheckButton } from "src/components";
 import styles from "src/components/TaskItem.module.css";
+import { UserTag } from "src/components/UserTag";
 
 import type { Task } from "src/api/tasks";
 
@@ -19,7 +21,11 @@ export function TaskItem({ task: initialTask }: TaskItemProps) {
     setLoading(true);
 
     try {
-      const updated = await updateTask({ ...task, isChecked: !task.isChecked });
+      const updated = await updateTask({
+        ...task,
+        isChecked: !task.isChecked,
+        assignee: task.assignee?._id,
+      });
 
       if (updated.success) {
         setTask(updated.data);
@@ -47,9 +53,13 @@ export function TaskItem({ task: initialTask }: TaskItemProps) {
           task.isChecked ? `${styles.textContainer} ${styles.checked}` : styles.textContainer
         }
       >
-        <span className={styles.title}>{task.title}</span>
+        <Link className={styles.link} to={`/task/${task._id}`}>
+          <span className={styles.title}>{task.title}</span>
+        </Link>
         {task.description && <span className={styles.checked}>{task.description}</span>}
       </div>
+
+      <UserTag user={task.assignee} />
 
       <Dialog
         styleVersion="styled"

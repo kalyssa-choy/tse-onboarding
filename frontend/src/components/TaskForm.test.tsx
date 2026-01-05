@@ -35,6 +35,7 @@ vi.mock("src/api/tasks", () => ({
    * See https://vitest.dev/guide/mocking#functions for more info about mock functions.
    */
   createTask: vi.fn(async (_params: CreateTaskRequest) => Promise.resolve({ success: true })),
+  updateTask: vi.fn(async (_task: Task) => Promise.resolve({ success: true })),
 }));
 
 /**
@@ -133,11 +134,18 @@ describe("taskForm", () => {
     });
     const saveButton = screen.getByTestId(SAVE_BUTTON_ID);
     fireEvent.click(saveButton);
-    expect(createTask).toHaveBeenCalledTimes(1);
-    expect(createTask).toHaveBeenCalledWith({
+
+    const { updateTask } = await import("src/api/tasks");
+    expect(updateTask).toHaveBeenCalledTimes(1);
+    expect(updateTask).toHaveBeenCalledWith({
+      _id: mockTask._id,
+      dateCreated: mockTask.dateCreated,
+      isChecked: mockTask.isChecked,
       title: "Updated title",
       description: "Updated description",
+      assignee: "", // empty string for test
     });
+
     await waitFor(() => {
       // If the test ends before all state updates and rerenders occur, we'll
       // get a warning about updates not being wrapped in an `act(...)`
